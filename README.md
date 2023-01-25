@@ -112,7 +112,7 @@ kubectl apply -f k8s/django-app-clearsessions-cronjob.yml
 
 ### База данных и миграции
 
-Базу данных PosgreSQL лучше развернуть вне кластера, но при необходимости можно сделать это и в Kubernetes, воспользовавшись [Helm](https://helm.sh/):
+Базу данных PostgreSQL лучше развернуть вне кластера, но при необходимости можно сделать это и в Kubernetes, воспользовавшись [Helm](https://helm.sh/):
 
 ```bash
 brew install helm
