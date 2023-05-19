@@ -20,7 +20,7 @@ spec:
         image: django_app
         imagePullPolicy: Never
         envFrom:
-          - configMapRef:
+          - secretRef:
               name: django-app-configmap
 ---
 apiVersion: v1

@@ -2,12 +2,12 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: django-app-clearsessions
-  labels:
-    app.kubernetes.io/name: django-app
 spec:
   schedule: "0 0 1 * *"
   jobTemplate:
     spec:
+      startingDeadlineSeconds: 15
+      ttlSecondsAfterFinished: 100
       template:
         metadata:
           labels:
@@ -22,6 +22,6 @@ spec:
               - manage.py
               - clearsessions
             envFrom:
-              - configMapRef:
+              - secretRef:
                   name: django-app-configmap
           restartPolicy: Never

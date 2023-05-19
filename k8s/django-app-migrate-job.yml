@@ -2,8 +2,6 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: django-app-migrate
-  labels:
-    app.kubernetes.io/name: django-app
 spec:
   backoffLimit: 2
   activeDeadlineSeconds: 90
@@ -22,6 +20,6 @@ spec:
             - migrate
             - --no-input
           envFrom:
-            - configMapRef:
+            - secretRef:
                 name: django-app-configmap
       restartPolicy: Never
